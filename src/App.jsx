@@ -3,6 +3,7 @@ import Startsection from "./components/Startsection";
 import { Fragment } from "react";
 import { ClickProvider } from "./contexts/clickContext";
 import { DateTimeProvider } from "./contexts/dateTimeContext";
+import { FormDataProvider } from "./contexts/taskFormContext";
 
 export default function App() {
   return (
@@ -12,7 +13,9 @@ export default function App() {
 
         <ClickProvider>
           <DateTimeProvider>
-            <Startsection />
+            <FormDataProvider>
+              <Startsection />
+            </FormDataProvider>
           </DateTimeProvider>
         </ClickProvider>
       </Fragment>

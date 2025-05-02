@@ -15,7 +15,7 @@ export default function CustomeDateTimePicker() {
         <DateTimePicker
           value={selectedDateTime}
           onChange={handleDateTimeChange}
-          label="date time picker"
+          label="Date & Time"
         />
       </DemoContainer>
     </LocalizationProvider>
