@@ -12,7 +12,7 @@ export const DateTimeProvider = ({ children }) => {
     setSelectedDateTime(newValue);
     if (newValue) {
       setDateString(newValue.format("YYYY-MM-DD"));
-      setTimeString(newValue.format("HH:mm:ss"));
+      setTimeString(newValue.format("HH:mm"));
     }
   };
 

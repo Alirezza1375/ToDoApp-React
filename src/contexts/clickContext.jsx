@@ -3,10 +3,17 @@ import React, { useState, useContext } from "react";
 const clickContext = React.createContext();
 
 export const ClickProvider = ({ children }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState({
+    createButton: false,
+    listButton: false,
+    taskItems: false,
+  });
 
-  const toggleClick = () => {
-    setIsClicked(!isClicked);
+  const toggleClick = (buttonType) => {
+    setIsClicked((prev) => ({
+      ...prev,
+      [buttonType]: !prev[buttonType],
+    }));
   };
 
   return (
