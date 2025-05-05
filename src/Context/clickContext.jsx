@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react";
 
 const clickContext = React.createContext();
 
-export const ClickProvider = ({ children }) => {
+export default function ClickProvider({ children }) {
   const [isClicked, setIsClicked] = useState({
-    createButton: false,
-    listButton: false,
-    taskItems: false,
+    addCard: false,
+    setUpCard: false,
+    deleteSetUp: false,
   });
+  const [inputValue, setInputValue] = useState(null);
 
   const toggleClick = (buttonType) => {
     setIsClicked((prev) => ({
@@ -17,10 +18,12 @@ export const ClickProvider = ({ children }) => {
   };
 
   return (
-    <clickContext.Provider value={{ isClicked, toggleClick }}>
+    <clickContext.Provider value={{ isClicked, toggleClick, setIsClicked }}>
       {children}
     </clickContext.Provider>
   );
-};
+}
 
-export const useClick = () => useContext(clickContext);
+export const useClick = () => {
+  return useContext(clickContext);
+};
